@@ -2,60 +2,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>WEB TIMES - Under Maintenance</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #bfe9ff, #6fbfff);
-      text-align: center;
-      color: #033f63;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 50px auto;
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    }
-    .logo {
-      width: 140px;
-    }
-    h1 {
-      color: #01579b;
-    }
-    .team {
-      margin-top: 30px;
-    }
-    .team img {
-      width: 150px;
-      border-radius: 10px;
-      border: 4px solid skyblue;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>WEB TIMES - Professional Under Maintenance</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#cce7ff,#6fbfff,#0b5fad);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.bg-glow{
+  position:absolute;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(255,255,255,.4),transparent);
+  filter:blur(60px);
+  top:-100px;left:-100px;
+  animation:float 6s infinite alternate;
+}
+@keyframes float{to{transform:translate(200px,120px)}}
+.container{
+  background:rgba(255,255,255,.92);
+  border-radius:25px;
+  width:95%;
+  max-width:1200px;
+  padding:50px;
+  text-align:center;
+  box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+.logo{
+  width:140px;
+  animation:pulse 2s infinite alternate;
+}
+@keyframes pulse{to{transform:scale(1.05)}}
+h1{
+  font-size:42px;
+  color:#03579b;
+  margin-top:10px;
+}
+.type{
+  font-size:20px;
+  color:#333;
+  margin-bottom:25px;
+  min-height:28px;
+}
+.maint{
+  font-size:34px;
+  font-weight:700;
+  color:#0b5fad;
+  margin-bottom:20px;
+}
+.desc{
+  max-width:720px;
+  margin:auto;
+  font-size:17px;
+  line-height:1.7;
+}
+.krishna{
+  width:220px;
+  border-radius:18px;
+  margin-top:35px;
+  animation:floaty 4s infinite alternate ease-in-out;
+}
+@keyframes floaty{to{transform:translateY(-18px)}}
+.progress{
+  width:80%;
+  margin:40px auto 10px;
+  height:14px;
+  background:#dbefff;
+  border-radius:20px;
+  overflow:hidden;
+}
+.bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#0277bd,#00e5ff);
+  animation:load 6s forwards;
+}
+@keyframes load{to{width:88%}}
+.timer{
+  font-size:16px;
+  margin-top:10px;
+}
+.footer{
+  margin-top:35px;
+  font-size:14px;
+  color:#555;
+}
+.whatsapp{
+  position:fixed;
+  right:20px;bottom:20px;
+  background:#25D366;
+  color:white;
+  padding:12px 18px;
+  border-radius:40px;
+  font-weight:600;
+  text-decoration:none;
+  animation:blink 1.5s infinite;
+}
+@keyframes blink{50%{opacity:.5}}
+</style>
 </head>
 <body>
-  <div class="container">
-    <img src="web_times_logo.png" class="logo">
-    <h1>WEB TIMES</h1>
-    <h2>Website Under Maintenance</h2>
-    <p>We are upgrading our platform with advanced features. Coming back soon.</p>
 
-    <div class="team">
-      <h3>Krishna</h3>
-      <img src="krishna.png">
-    </div>
+<div class="bg-glow"></div>
 
-    <footer>
-      © 2025 WEB TIMES. All rights reserved.
-    </footer>
+<div class="container">
+  <img src="web_times_logo.png" class="logo">
+  <h1>WEB TIMES</h1>
+  <div class="type" id="typing"></div>
+
+  <div class="maint">Website Under Maintenance</div>
+  <p class="desc">
+  We are building a next‑generation professional platform with advanced performance,
+  modern UI, and powerful features. Please stay connected — we are coming back very soon.
+  </p>
+
+  <img src="krishna.png" class="krishna">
+
+  <div class="progress"><div class="bar"></div></div>
+  <div class="timer" id="clock"></div>
+
+  <div class="footer">
+  © 2025 WEB TIMES. All Rights Reserved.
   </div>
+</div>
+
+<a class="whatsapp" href="#">WhatsApp</a>
+
+<script>
+// Typing Animation
+let text="WEB TIMES • Professional Digital Solutions";
+let i=0;
+setInterval(()=>{
+  document.getElementById("typing").innerText=text.slice(0,i++);
+  if(i>text.length)i=0;
+},120);
+
+// Live Clock
+setInterval(()=>{
+  let d=new Date();
+  document.getElementById("clock").innerText=
+  "Live Time: "+d.toLocaleDateString()+" | "+d.toLocaleTimeString();
+},1000);
+</script>
+
 </body>
 </html>
